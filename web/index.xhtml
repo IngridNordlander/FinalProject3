@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Orders</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p3>
+                Add :
+            </p3>
+            <p:panelGrid columns="2">
+
+                <h:outputLabel value="Cloth Name:"/>
+                <h:inputText value="#{clothController.name}" label="name"/>
+
+                <h:outputLabel value="Cloth Description:"/>  
+                <h:inputText value="#{clothController.description}" label="description"/>
+
+                <h:outputLabel value="Cloth Price:"/>
+                <h:inputText value="#{clothController.price}" label="price"/>
+
+                <h:outputLabel value="Cloth Origin:"/>
+                <h:inputText value="#{clothController.origin}" label="origin"/>
+
+                <h:message for="number" style="color:blue"/>
+                <h:commandButton value="Submit" action="#{clothController.submit()}"/>
+            </p:panelGrid>
+
+            <p3>
+                Update information :
+            </p3>
+            <p:panelGrid columns="2">
+                <h:outputLabel value="ID: "/>
+                <h:inputText value="#{clothController.id2}"/> 
+                <h:outputLabel value="Name: "/>
+                <h:inputText value="#{clothController.name}"/> 
+                <h:message for="number" style="color:blue"/>
+                <h:commandButton value="Update" action="#{clothController.upDate}"/>  
+            </p:panelGrid>
+            <p3>
+                Delete  :
+            </p3>
+            <p:panelGrid columns="2">
+                <h:outputLabel value="ID: "/>
+                <h:inputText value="#{clothController.id}"/> 
+                <h:message for="number" style="color:blue"/>
+                <h:commandButton value="Delete" action="#{clothController.delete}"/>  
+            </p:panelGrid>
+
+            <p3>
+                Show information by ID :
+            </p3>
+            <p:panelGrid columns="2">
+                <h:outputLabel value="ID: "/>
+                <h:inputText value="#{clothController.id2}"/> 
+                <h:message for="number" style="color:blue"/>
+                <h:commandButton value="ShowCloth" action="#{clothController.showCloth}"/> 
+                <h:dataTable value="#{clothController.cloth1}" var="p1">
+                    <h:column>#{p1.id}</h:column>
+                    <h:column>#{p1.name}</h:column>
+                    <h:column>#{p1.description}</h:column>
+                    <h:column>#{p1.price}</h:column>
+                    <h:column>#{p1.origin}</h:column>   
+                </h:dataTable> 
+            </p:panelGrid>
+            <p3>
+                Show All :
+            </p3>
+            <p:panelGrid columns="2">
+                <h:commandButton value="ShowAll" action="#{clothController.showAll}"/> 
+                <h:dataTable value="#{clothController.allCloths}" var="p">
+                    <h:column>#{p.id}</h:column>
+                    <h:column>#{p.name}</h:column>
+                    <h:column>#{p.description}</h:column>
+                    <h:column>#{p.price}</h:column>
+                    <h:column>#{p.origin}</h:column>   
+                </h:dataTable> 
+            </p:panelGrid>
+
+        </h:form>
+
+
+        <br />
+       
+    </h:body>
+</html>
+
